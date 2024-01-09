@@ -1,4 +1,6 @@
-const socket = io.connect('http://localhost:5500');
+// const socket = io.connect('http://localhost:5500');
+const socket = io.connect('https://sumit-gola.onrender.com/');
+
 
 const init = async() => {
     const initData = await socket.emitWithAck('init', {
