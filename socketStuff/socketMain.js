@@ -15,12 +15,12 @@ const Orb = require("./classes/Orb");
 const orbs = [];
 
 const settings = {
-  defaultNumberOfOrbs: 500,
+  defaultNumberOfOrbs: 5000,
   defaultSpeed: 6,
   defaultSize: 6,
   defaultZoom: 1.5,
-  worldWidth: 500,
-  worldHeight: 500,
+  worldWidth: 5000,
+  worldHeight: 5000,
   defaultGenericOrbSize: 5,
 };
 
@@ -107,8 +107,17 @@ io.on("connect", (socket) => {
     }
   });
 
-  socket.on("disconnect", () => {
+  socket.on("disconnect", (reason) => {
     //if empty players array stop tick
+    //loop players
+    for(let i = 0 ; i<players.length ; i++){
+      if(players[i].socketId === player.socketId){
+        players.splice(i,1,{});
+        playersForUsers.splice(i,1,{});
+        break;
+      }
+    }
+
     if (players.length === 0) {
       clearInterval(tickTockInterval);
     }
