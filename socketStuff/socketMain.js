@@ -15,12 +15,12 @@ const Orb = require("./classes/Orb");
 const orbs = [];
 
 const settings = {
-  defaultNumberOfOrbs: 5000,
+  defaultNumberOfOrbs: 1000,
   defaultSpeed: 6,
   defaultSize: 6,
   defaultZoom: 1.5,
-  worldWidth: 5000,
-  worldHeight: 5000,
+  worldWidth: 2000,
+  worldHeight: 2000,
   defaultGenericOrbSize: 5,
 };
 
